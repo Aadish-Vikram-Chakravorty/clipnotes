@@ -1,69 +1,33 @@
-# React + TypeScript + Vite
+# ClipNotes 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ClipNotes is a browser extension that lets you bookmark key moments in YouTube videos and take synchronized notes in the cloud.
 
-Currently, two official plugins are available:
+![Screenshot of ClipNotes in action] 
+(You can add a screenshot here later)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features ✨
 
-## Expanding the ESLint configuration
+* **Cloud Sync:** Log in to sync your bookmarks and notes across multiple devices.
+* **Timestamp Bookmarking:** Instantly save any moment in a YouTube video.
+* **Note-Taking:** Add, edit, and delete detailed notes for each bookmark.
+* **Search:** Quickly find any note or bookmark with a built-in search.
+* **Export:** Save your notes as a PDF file for offline study or printing.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack 🛠️
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* **Frontend:** React, TypeScript, Vite
+* **Backend & Database:** Supabase (Auth & Postgres)
+* **Styling:** CSS
+* **File Generation:** jsPDF
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## How to Run Locally
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  Clone the repository: `git clone https://github.com/Aadish-Vikram-Chakravorty/clipnotes`
+2.  Install dependencies: `npm install`
+3.  Create a `.env` file in the root and add your Supabase credentials:
+    ```
+    VITE_SUPABASE_URL=...
+    VITE_SUPABASE_ANON_KEY=...
+    ```
+4.  Build the extension: `npm run build`
+5.  Load the `dist` folder as an unpacked extension in Google Chrome.
